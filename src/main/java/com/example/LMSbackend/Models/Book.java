@@ -3,13 +3,17 @@ package com.example.LMSbackend.Models;
 
 import com.example.LMSbackend.Enums.Genre;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Book {
 
     @Id
