@@ -30,11 +30,9 @@ public class StudentService {
         student.setEmail(studentRequestDto.getEmail());
         student.setName(studentRequestDto.getName());
 
-        Card newCard = new Card();
 
-        newCard.setCardStatus(CardStatus.ACTIVATED);
+        Card newCard = cardService.createCard(student);
 
-        newCard.setStudent(student); //For that new foreign key column
 
         //For that bidirectional relation
         student.setCard(newCard);
@@ -43,6 +41,8 @@ public class StudentService {
         //cardRepository.save() will automatically be taken of.
 
         return "Successfully added student and card";
+
+
     }
 
 
