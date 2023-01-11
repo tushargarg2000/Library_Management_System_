@@ -44,7 +44,7 @@ public class BookService {
         authorRepository.save(author);
 
         //Save the book
-        bookRepository.save(book);
+        //This function will automatically be called by the parent save
 
         return "succesfully added book";
 

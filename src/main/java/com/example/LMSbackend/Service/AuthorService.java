@@ -5,9 +5,12 @@ import com.example.LMSbackend.Convertors.AuthorConvertor;
 import com.example.LMSbackend.Models.Author;
 import com.example.LMSbackend.Repository.AuthorRepository;
 import com.example.LMSbackend.RequestDto.AuthorRequestDto;
+import com.example.LMSbackend.ResponseDto.AuthorResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -26,6 +29,16 @@ public class AuthorService {
             return "Create author didnt work";
         }
         return "Author created successfully";
+    }
+
+    public List<AuthorResponseDto> findAuthorByName(String name){
+
+        List<Author> authors = authorRepository.findByName(name);
+
+        List<AuthorResponseDto> authorResponseDtos = AuthorConvertor.convertEntityToDto(authors);
+
+        return authorResponseDtos;
+
     }
 
 }
